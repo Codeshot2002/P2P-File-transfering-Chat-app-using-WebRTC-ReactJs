@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-import Chat from './components/chat-component/Chat';
-import webRTC from './components/video/webRTC';
+import React from 'react';
 import Video from './components/video/Video'
 function App() {
 
   return (
     <>
     <Video/>
-
     </>
   );
 }
