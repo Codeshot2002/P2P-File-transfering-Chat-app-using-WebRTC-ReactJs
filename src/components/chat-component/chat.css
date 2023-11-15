@@ -23,6 +23,39 @@
     width: 60vh;
   }
   
+  /* Styles for messages from the host */
+.chat-container.from-host {
+  align-items: flex-end;
+}
+
+/* Styles for messages from others */
+.chat-container.from-others {
+  align-items: flex-start;
+}
+
+/* Common styles for chat messages */
+.chat-message {
+  margin: 5px;
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 70%;
+}
+
+/* Styles for messages from the host */
+.chat-message.from-host {
+  background-color: #3498db; /* Blue background for host messages */
+  color: #fff; /* White text for host messages */
+  align-self: flex-end;
+}
+
+/* Styles for messages from others */
+.chat-message.from-others {
+  background-color: #ecf0f1; /* Light gray background for others' messages */
+  color: #333; /* Dark text for others' messages */
+  align-self: flex-start;
+}
+
+
   .chat-message {
     background-color: #f0f0f0;
     padding: 5px;

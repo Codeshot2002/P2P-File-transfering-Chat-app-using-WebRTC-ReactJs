@@ -4,11 +4,15 @@ import './chat.css';
 
 function Chat() {
   const [chatMessages, setChatMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState('');
+  const [newMessage, setNewMessage] = useState();
+
+  const[myId, setMyId] = useState();
+  const[remoteId, setRemoteId] = useState([]);
   
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
-      setChatMessages([{ text: newMessage }, ...chatMessages]);
+      const newChatMessage = { name: myId, message: newMessage };
+      setChatMessages([newChatMessage, ...chatMessages]);
       setNewMessage('');
     }
     console.log(chatMessages);
@@ -24,7 +28,8 @@ function Chat() {
   const handleJoinLobby = () => {
     if (name && lobbyName) {
       //Join lobby
-      
+      console.log(name + " joined the lobby");
+      setMyId(name);
     } else {
       alert('Please enter your name and lobby name.');
     }
@@ -33,7 +38,8 @@ function Chat() {
   const handleCreateLobby = () => {
     if (name && lobbyName) {
       //Create lobby
-
+      console.log(name + "created the lobby");
+      setMyId(name);
     } else {
       alert('Please enter your name and lobby name.');
     }
@@ -68,7 +74,8 @@ function Chat() {
     </div>
       <div className="App">
         <h1>Chat App</h1>
-        <ChatContainer chatMessages={chatMessages} />
+        <ChatContainer chatMessages={chatMessages} 
+        host={myId}/>
         <div className="message-input">
           <input
             type="text"
