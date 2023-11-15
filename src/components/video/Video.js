@@ -12,17 +12,19 @@ function Video() {
   
   useEffect(() => {
     //setting up connection
-    const peer = new Peer();
+    const currentDate = new Date();
+    const sec = currentDate.getSeconds();
+    const peer = new Peer("umangsharma" + sec);
     setpeer(peer);
+    setId(peer._id);
 
-    var connection = false;
-
+    var connection  = false;
     //receive mesgs
     peer.on("connection", (conn) => {
       conn.on("data", (data) => {
         // Will print 'hi!'
         console.log(data);
-        if (!connection && data.length == 36) {
+        if (!connection && (data.length == 12 || data.length == 11)) {
           setRemoteId(data);
           connection = true;
         }

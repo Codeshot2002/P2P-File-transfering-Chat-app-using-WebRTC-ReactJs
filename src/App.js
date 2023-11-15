@@ -1,10 +1,10 @@
 import React from 'react';
-import Video from './components/video/Video'
+import Chat from './components/chat-component/Chat'
 function App() {
 
   return (
     <>
-    <Video/>
+    <Chat/>
     </>
   );
 }
